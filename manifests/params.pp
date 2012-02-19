@@ -19,11 +19,6 @@
 #   This method should not be called directly.
 class sudoers::params {
   $ss_basedir = '/tmp/sudoers.d'
-  
-  case $::operatingsystem {
-    redhat,centos,fedora,oel: {
-      $ss_package      = 'sudo'
-      $ss_sudoers_file = '/etc/sudoers'
-    }
-  }
+  $ss_package = 'sudo'
+  $ss_sudoers_file = '/etc/sudoers'
 }
