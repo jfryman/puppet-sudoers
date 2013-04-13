@@ -1,1 +1,1 @@
-<% if isgroup == 'true' -%>%<% end -%><%= name %> ALL = <% if noexec == 'true' -%>NOEXEC:<% end -%><% if nopasswd == 'true' -%>NOPASSWD:<% end -%> <%= commands.join(', ') %>
+<% if isgroup -%>%<% end -%><%= name %> ALL = <% if noexec -%>NOEXEC:<% end -%><% if nopasswd -%>NOPASSWD:<% end -%> <%= commands.join(', ') %>

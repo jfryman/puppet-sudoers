@@ -20,22 +20,22 @@
 #  This definition has no requirements.
 #
 # Sample Usage:
-#  sudoers::entry { 'james': 
-#    ensure   => 'present',
-#    nopasswd => 'true',
-#    noexec   => 'true',
+#  sudoers::entry { 'james':
+#    ensure   => present,
+#    nopasswd => true,
+#    noexec   => true,
 #    commands => ['/bin/cat', '/usr/bin/vim'],
 #  }
 define sudoers::entry(
-  $ensure   = 'present',
-  $isgroup  = 'false',
-  $nopasswd = 'false',
-  $noexec   = 'false',
-  $commands = ['ALL']
+  $ensure   = present,
+  $isgroup  = false,
+  $nopasswd = false,
+  $noexec   = false,
+  $commands = ['ALL'],
 ) {
   include sudoers
 
-  file { "${sudoers::params::ss_basedir}/fragment/${name}": 
+  file { "${sudoers::params::ss_basedir}/fragment/${name}":
     ensure  => $ensure,
     content => template('sudoers/sudoers.erb'),
     notify  => Exec['rebuild-sudoers'],
