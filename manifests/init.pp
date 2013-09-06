@@ -29,7 +29,6 @@
 #    commands => ['/bin/cat', '/usr/bin/vim'],
 #  }
 class sudoers {
-  include stdlib
   include sudoers::params
 
   anchor { 'sudoers::begin': }
